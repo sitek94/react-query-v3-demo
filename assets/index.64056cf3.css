@@ -1,0 +1,1 @@
+html{font-size:20px;color:#333;font-family:sans-serif}body{margin:.5rem}nav{display:flex;gap:.5rem;padding:.5rem 0 1rem;border-bottom:3px solid #333}nav h1{margin:0 auto 0 0}nav a{color:#333;font-size:1.5rem;text-decoration:none}nav a.active{color:#6495ed}a{color:#6495ed}
