@@ -1,7 +1,17 @@
+import {BrowserRouter as Router} from 'react-router-dom'
+import {QueryClient, QueryClientProvider} from 'react-query'
+import {ReactQueryDevtools} from 'react-query/devtools'
+import {Layout} from './layout'
+
+const queryClient = new QueryClient()
+
 export function App() {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Layout />
+        <ReactQueryDevtools initialIsOpen />
+      </Router>
+    </QueryClientProvider>
   )
 }

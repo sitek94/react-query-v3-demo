@@ -1,0 +1,26 @@
+html {
+  font-size: 20px;
+  color: #333;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0.5rem;
+}
+
+nav {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 0 1rem;
+  border-bottom: 3px solid #333;
+}
+
+nav a {
+  color: #333;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+nav a.active {
+  color: cornflowerblue;
+}
