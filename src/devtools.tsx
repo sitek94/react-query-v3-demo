@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {CogIcon, XIcon} from '@heroicons/react/outline'
 import clsx from 'clsx'
+import {useQueryClient} from 'react-query'
 
 const ReactQueryDevToolsPanel = React.lazy(() =>
   import('react-query/devtools/development').then(d => ({
@@ -14,8 +15,20 @@ enum Tab {
 }
 
 export const DevTools = () => {
+  const queryClient = useQueryClient()
+
   const [tab, setTab] = React.useState<Tab>(Tab.Options)
   const [showDevtools, setShowDevtools] = React.useState(false)
+
+  const [refetchOnWindowFocus, setRefetchOnWindowFocus] = React.useState(false)
+
+  React.useEffect(() => {
+    queryClient.setDefaultOptions({
+      queries: {
+        refetchOnWindowFocus,
+      },
+    })
+  }, [refetchOnWindowFocus])
 
   return (
     <>
@@ -51,7 +64,17 @@ export const DevTools = () => {
             </div>
             {tab === Tab.Options && (
               <div className="devtools-options">
-                <h1>Options</h1>
+                <div className="form-control">
+                  <label className="label cursor-pointer justify-start gap-2">
+                    <input
+                      type="checkbox"
+                      className="toggle toggle-primary"
+                      checked={refetchOnWindowFocus}
+                      onChange={e => setRefetchOnWindowFocus(e.target.checked)}
+                    />
+                    <span className="label-text">refetchOnWindowFocus</span>
+                  </label>
+                </div>
               </div>
             )}
             {tab === Tab.Queries && (
