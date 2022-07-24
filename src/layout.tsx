@@ -69,7 +69,7 @@ function People() {
       <h2>People</h2>
       <ul>
         {data.results.map(person => (
-          <li key={person.id}>{person.name}</li>
+          <li key={person.name}>{person.name}</li>
         ))}
       </ul>
     </>
@@ -87,7 +87,7 @@ function Films() {
       <h2>Films</h2>
       <ul>
         {data.results.map(film => (
-          <li key={film.id}>{film.title}</li>
+          <li key={film.title}>{film.title}</li>
         ))}
       </ul>
     </>
