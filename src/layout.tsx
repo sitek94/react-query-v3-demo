@@ -1,4 +1,4 @@
-import {NavLink, Route, Switch} from 'react-router-dom'
+import {NavLink, Redirect, Route, Switch} from 'react-router-dom'
 import {useQuery} from 'react-query'
 
 import {api} from './api'
@@ -24,14 +24,17 @@ export function Layout() {
       </nav>
       <main className="prose p-4">
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route exact path="/films">
             <Films />
           </Route>
           <Route exact path="/people">
             <People />
           </Route>
-          <Route path="/">
-            <Home />
+          <Route path="*">
+            <Redirect to="/" />
           </Route>
         </Switch>
       </main>
